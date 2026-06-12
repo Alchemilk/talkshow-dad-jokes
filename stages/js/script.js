@@ -42,6 +42,10 @@ function initGame() {
  */
 async function loadLevel(levelId) {
     try {
+        // 显示loading动画
+        const loadingOverlay = document.getElementById('loading-overlay');
+        loadingOverlay.classList.remove('hidden');
+        
         console.log('loadLevel: 尝试加载stage' + levelId);
         // 从QandA.md读取关卡数据
         const response = await fetch(`stage${levelId}/QandA.md`);
@@ -76,10 +80,6 @@ async function loadLevel(levelId) {
             answer: answer
         };
         
-        // 设置图片路径
-        document.getElementById('image-top').src = `stage${levelId}/img0/000.jpg`;
-        document.getElementById('image-bottom').src = `stage${levelId}/img1/111.jpg`;
-        
         // 设置描述文字
         document.getElementById('desc-top').textContent = '这是' + descTop;
         
@@ -113,12 +113,45 @@ async function loadLevel(levelId) {
         // 清空猜测历史
         document.getElementById('guess-history').innerHTML = '';
         
+        // 等待图片加载完成
+        const imageTop = document.getElementById('image-top');
+        const imageBottom = document.getElementById('image-bottom');
+        
+        // 设置图片路径
+        imageTop.src = `stage${levelId}/img0/000.jpg`;
+        imageBottom.src = `stage${levelId}/img1/111.jpg`;
+        
+        // 等待两张图片都加载完成
+        await Promise.all([
+            new Promise((resolve) => {
+                if (imageTop.complete) {
+                    resolve();
+                } else {
+                    imageTop.onload = resolve;
+                    imageTop.onerror = resolve; // 即使加载失败也继续
+                }
+            }),
+            new Promise((resolve) => {
+                if (imageBottom.complete) {
+                    resolve();
+                } else {
+                    imageBottom.onload = resolve;
+                    imageBottom.onerror = resolve; // 即使加载失败也继续
+                }
+            })
+        ]);
+        
+        // 隐藏loading动画
+        loadingOverlay.classList.add('hidden');
+        
         // 自动聚焦输入框
         input.focus();
         
     } catch (error) {
         console.error('加载关卡失败:', error);
         showFeedback('关卡加载失败，请检查文件路径', 'error');
+        // 隐藏loading动画
+        document.getElementById('loading-overlay').classList.add('hidden');
     }
 }
 
