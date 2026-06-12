@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别笑，脱口秀演员也猜不到</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 背景层 -->
+        <div class="sky"></div>
+        <div class="grass"></div>
+        
+        <!-- 云朵 -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        
+        <!-- 远景装饰 -->
+        <div class="distant-trees">
+            <div class="tree tree-1"></div>
+            <div class="tree tree-2"></div>
+            <div class="tree tree-3"></div>
+        </div>
+        
+        <!-- 右侧树木群 -->
+        <div class="scene-tree tree-right-1"></div>
+        <div class="scene-tree tree-right-2"></div>
+        <div class="scene-tree tree-right-3"></div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <h1 class="game-title">
+                <span class="title-text">别笑，脱口秀演员也猜不到</span>
+            </h1>
+            <button class="start-btn" id="startBtn">
+                <span class="btn-text">开始</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+
+        <!-- 关卡页面容器（初始隐藏） -->
+        <div class="stages-container" id="stagesContainer">
+            <iframe id="stagesFrame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

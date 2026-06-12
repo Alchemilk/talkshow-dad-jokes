@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让脱口秀难受的猜词 - 关卡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 顶部关卡信息栏 -->
+        <header class="level-header">
+            <button class="back-btn" onclick="goBack()">返回首页</button>
+            <span class="level-info">第 <span id="current-level">1</span> 题</span>
+        </header>
+
+        <!-- 主体双栏布局 -->
+        <main class="main-layout">
+            <!-- 左侧：题目区域 -->
+            <section class="left-panel">
+                <div class="question-area">
+                    <div class="question-header">
+                        <div class="word-type" id="word-type">词语类型加载中...</div>
+                    </div>
+                    <div class="question-content" id="question-content">
+                        <!-- 上方图片区域 -->
+                        <div class="image-block">
+                            <img id="image-top" class="question-image" src="" alt="题目图片">
+                            <p class="image-desc" id="desc-top">这是 ___</p>
+                        </div>
+                        <!-- 下方图片区域 -->
+                        <div class="image-block">
+                            <img id="image-bottom" class="question-image" src="" alt="答案图片">
+                            <p class="image-desc" id="desc-bottom">这是 ___</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 右侧：答题区域 -->
+            <section class="right-panel">
+                <div class="answer-area">
+                    <div class="answer-label">
+                        剩余次数
+                        <span class="chances-display" id="chances-display">
+                            <span class="chance-icon">♥</span>
+                            <span class="chance-icon">♥</span>
+                            <span class="chance-icon">♥</span>
+                            <span class="chance-icon">♥</span>
+                            <span class="chance-icon">♥</span>
+                        </span>
+                    </div>
+                    <div class="answer-input-wrapper">
+                        <input 
+                            type="text" 
+                            class="answer-input" 
+                            id="answer-input" 
+                            placeholder="请输入你的答案..."
+                            autocomplete="off"
+                        >
+                        <button class="submit-btn" id="submit-btn" onclick="submitAnswer()">提交答案 <span class="enter-icon">↵</span></button>
+                    </div>
+                    <div class="feedback-message" id="feedback-message"></div>
+                    <div class="guess-history" id="guess-history"></div>
+                    <!-- 心耗尽后显示的下一关区域 -->
+                    <div class="next-level-area" id="next-level-area" style="display: none;">
+                        <div class="countdown-text">自动跳转倒计时：<span id="countdown">10</span>秒</div>
+                        <button class="next-level-btn" onclick="nextLevel()">下一关 <span class="enter-icon">↵</span></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 完成所有关卡弹窗 -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <p class="modal-text">恭喜！你已经完成了所有关卡！</p>
+            <button class="modal-btn" onclick="goBack()">返回首页</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
