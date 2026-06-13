@@ -263,7 +263,7 @@ body {
 
 .title-text {
     font-family: 'ZCOOL KuaiLe', cursive, sans-serif;
-    font-size: 80px;
+    font-size: clamp(32px, 6vw, 80px);
     font-weight: bold;
     color: #FFD54F;
     text-shadow:
@@ -365,7 +365,6 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .title-text {
-        font-size: 50px;
         letter-spacing: 4px;
     }
     
@@ -381,8 +380,18 @@ body {
 
 @media (max-width: 480px) {
     .title-text {
-        font-size: 36px;
         letter-spacing: 2px;
+        white-space: normal;
+    }
+    
+    .title-line1,
+    .title-line2 {
+        display: block;
+        line-height: 1.4;
+    }
+    
+    .title-line2 {
+        white-space: nowrap;
     }
     
     .game-title {
@@ -400,10 +409,6 @@ body {
 }
 
 @media (max-width: 380px) {
-    .title-text {
-        font-size: 28px;
-    }
-    
     .game-title {
         margin-bottom: 50px;
     }
