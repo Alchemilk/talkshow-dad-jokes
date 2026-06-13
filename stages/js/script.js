@@ -402,3 +402,14 @@ function goBack() {
         window.location.href = '../index.html';
     }
 }
+
+/**
+ * 切换音乐状态
+ */
+function toggleMusic() {
+    const musicBtn = document.getElementById('music-btn');
+    musicBtn.classList.toggle('muted');
+    
+    // 暂时没有实际音效，只切换图标状态
+    // 未来可以在这里添加音效控制逻辑
+}
