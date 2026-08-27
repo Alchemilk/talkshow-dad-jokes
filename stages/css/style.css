@@ -96,7 +96,7 @@ html, body {
     transform: translateX(-50%);
 }
 
-/* 音乐按钮 */
+/* 音乐按钮相关样式暂时注释掉
 .music-btn {
     width: 40px;
     height: 40px;
@@ -156,6 +156,7 @@ html, body {
 .music-btn.muted .music-icon {
     text-decoration: line-through;
 }
+*/
 
 
 
