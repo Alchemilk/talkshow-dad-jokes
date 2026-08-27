@@ -404,12 +404,12 @@ function goBack() {
 }
 
 /**
- * 切换音乐状态
+ * 切换音乐状态（暂时注释掉，音乐按钮已隐藏）
  */
-function toggleMusic() {
-    const musicBtn = document.getElementById('music-btn');
-    musicBtn.classList.toggle('muted');
-    
-    // 暂时没有实际音效，只切换图标状态
-    // 未来可以在这里添加音效控制逻辑
-}
+// function toggleMusic() {
+//     const musicBtn = document.getElementById('music-btn');
+//     musicBtn.classList.toggle('muted');
+//
+//     // 暂时没有实际音效，只切换图标状态
+//     // 未来可以在这里添加音效控制逻辑
+// }
